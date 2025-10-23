@@ -138,289 +138,293 @@
 </div>
 
 <script>
-/* ======= DỮ LIỆU 5 ĐỀ – đáp án & giải thích chi tiết =======
-   a: index đúng (0=A,1=B,2=C,3=D)
-   e: giải thích (đã viết chi tiết hơn)
-====================================================*/
+/* ================================================================
+   TRẮC NGHIỆM 5 ĐỀ — DỮ LIỆU & LOGIC HIỂN THỊ (BẢN ĐÃ FIX)
+   - Khi chọn sai: hiện ngay đáp án đúng + giải thích
+   - Chữ cái đáp án đúng (A/B/C/D) hiển thị theo vị trí sau khi xáo
+================================================================ */
 
-/* --- ĐỀ 1 --- */
+/* =================== DỮ LIỆU 5 ĐỀ =================== */
+/* a = chỉ số đúng trong mảng c (0=A,1=B,2=C,3=D)
+   e = giải thích ngắn gọn, chuẩn & nhất quán */
 const DE1 = [
-{n:101,q:"The car_____ to my uncle.",c:["belongs","are belonging","belong","belonging"],a:0,e:"Động từ trạng thái **belong** không dùng tiếp diễn. Cấu trúc: **belong to + someone** → *The car belongs to my uncle*."},
-{n:102,q:"She _____ yawns in English class.",c:["sometimes","already","sometime","though"],a:0,e:"Trạng từ tần suất (**sometimes, often, always...**) đặt trước động từ thường: *She sometimes yawns...*"},
-{n:103,q:"I _____ to watch comedies on TV.",c:["liking","likes","am liking","like"],a:3,e:"Thói quen/sở thích chung dùng hiện đơn: **I like** + V-ing/to V."},
-{n:104,q:"They _____ at two o’clock tomorrow.",c:["arrived","have arrived","are arriving","have been arriving"],a:2,e:"Diễn tả kế hoạch đã sắp xếp trong tương lai gần → **present continuous**: *are arriving* + thời điểm tương lai."},
-{n:105,q:"When I arrived at my aunt’s home, she _____ her kitchen floor.",c:["was sweeping","sweep","had sweeping","sweeps"],a:0,e:"Hành động đang diễn ra ở quá khứ bị chèn bởi hành động khác → **QK tiếp diễn**: *was sweeping*."},
-{n:106,q:"It _____ for two days when I arrived in town.",c:["rained","rains","has been raining","had been raining"],a:3,e:"Hành động kéo dài **trước** một mốc quá khứ → **QKHT tiếp diễn**: *had been raining* (for two days)."},
-{n:107,q:"He sometimes _____ money from his parents.",c:["lend","lends","borrow","borrows"],a:3,e:"**borrow ... from** (mượn từ ai). Chủ ngữ *he* → chia **borrows**."},
-{n:108,q:"We’ll get there _____ six o’clock.",c:["before","on","ago","in"],a:0,e:"**Before** + mốc thời gian: *before six o’clock* (trước 6 giờ)."},
-{n:109,q:"We all look forward _____ you very soon.",c:["to see","will see","to seeing","like seeing"],a:2,e:"**look forward to + V-ing** → *to seeing you*."},
-{n:110,q:"Last weekend, we went horseback _____ on the farm.",c:["ride","riding","rode","ridden"],a:1,e:"Hoạt động giải trí: **go + V-ing** → *go riding*."},
-{n:111,q:"I forgot _____ before I exercised.",c:["to stretch","stretching","stretched","stretch"],a:0,e:"**forget to V** = quên **chưa làm** việc gì (khác **forget V-ing**)."},
-{n:112,q:"Several students from the suburbs ______ buses to school.",c:["get on","getting on","take","taking"],a:2,e:"Thói quen đi lại → **take** buses."},
-{n:113,q:"Why haven’t you _____ your hair yet?",c:["comb","combed","to comb","combing"],a:1,e:"Hiện hoàn thành cần **V3** → *haven’t ... combed*."},
-{n:114,q:"My boss told me _____ the project by this Friday.",c:["finish","to finish","finishing","to finishing"],a:1,e:"**tell + O + to V** → *told me to finish*."},
-{n:115,q:"It is difficult _____ from England to France.",c:["row","rowed","to row","row to"],a:2,e:"**Adj + to V**: *difficult to row*."},
-{n:116,q:"I don’t have time _____ for the cheapest car.",c:["look","looked","to look","looking"],a:2,e:"Cụm cố định: **time to V** → *time to look*."},
-{n:117,q:"It’s raining. Could you _____ me your umbrella?",c:["borrow","lend","until","remind"],a:1,e:"**lend sb sth** (cho ai mượn). *borrow* là “mượn từ ai”."},
-{n:118,q:"During the day, they _____ time to finish the work.",c:["doesn’t have","didn’t have","not have","don’t"],a:3,e:"Hiện đơn phủ định với *they*: **don’t have**."},
-{n:119,q:"All of the people there_____ from Japan.",c:["were","is","be","was"],a:0,e:"Chủ ngữ số nhiều → **were**."},
-{n:120,q:"I went to the city _____ train.",c:["by","before","for","through"],a:0,e:"Phương tiện chung → **by** train."},
-{n:121,q:"I’d better_____ to bed now…",c:["go","going","to go","went"],a:0,e:"**had better + V** nguyên mẫu không *to*."},
-{n:122,q:"Could you_____ me my red sweater, please?",c:["take","advise","borrow","bring"],a:3,e:"**bring** (mang đến chỗ người nói); *take* là mang đi chỗ khác."},
-{n:123,q:"We have_____ solved the problem.",c:["already","could","yet","can"],a:0,e:"**already** dùng với hiện hoàn thành để nhấn mạnh đã xong sớm."},
-{n:124,q:"We will get there_____ a few minutes.",c:["in","on","at","by"],a:0,e:"**in + khoảng thời gian** tương lai: *in a few minutes*."},
-{n:125,q:"…be up _____ six o’clock.",c:["on","by","in","to"],a:1,e:"**by + mốc thời gian** = muộn nhất là lúc đó."},
-{n:126,q:"The man_____ Linda spoke was her English teacher.",c:["who","whose","to whom","that"],a:2,e:"Cấu trúc: **speak to sb** → *the man to whom Linda spoke*."},
-{n:127,q:"Is the store_____ on Sundays?",c:["open","opens","will open","to opening"],a:0,e:"Dùng **tính từ** “open” (cửa hàng mở)."},
-{n:128,q:"He is always very_____.",c:["patient","patience","patiently","impatiently"],a:0,e:"Cần **tính từ** mô tả người: **patient**."},
-{n:129,q:"Neither of them knows how to cook, so they _____ eat out.",c:["often","seldom","rarely","never"],a:0,e:"“Neither of them knows how to cook” ⇒ kết luận hợp lý là **thường** đi ăn ngoài (**often**). Các lựa chọn *never/seldom/rarely* mang nghĩa tần suất thấp hoặc không, mâu thuẫn với mệnh đề kết quả sau **so**."},
-{n:130,q:"They went _____ Guam on vacation.",c:["with","to","for","about"],a:1,e:"Đi đến đâu: **go to**."},
-{n:131,q:"This one is more _____ than that one.",c:["cheap","cheaper","expensive","expensively"],a:2,e:"So sánh hơn với tính từ dài: **more + adj** → *more expensive*."},
-{n:132,q:"This black wallet is much _____ attractive than the brown one.",c:["too","more","so","as"],a:1,e:"**much + more + adj** để nhấn mạnh mức độ so sánh hơn."},
-{n:133,q:"There are _____ workers picking cotton…",c:["not","no","not never","no never"],a:1,e:"Mẫu: **There are no + N số nhiều** = không có …"},
-{n:134,q:"…the date _____ we meet every year.",c:["at which","through","on which","where"],a:2,e:"Ngày/thứ kèm **on which**: *the date on which…*"},
-{n:135,q:"I have _____ money now than I had last year.",c:["fewer","much","less","a lot"],a:2,e:"**less** + danh từ **không đếm được** (*money*)."},
-{n:136,q:"He’s never _____ time!",c:["on","at","the","rise"],a:0,e:"**on time** = đúng giờ."},
-{n:137,q:"_____ you hear the bell, …",c:["By the time","As","Whether","As soon as"],a:3,e:"Mệnh đề thời gian kết quả ngay: **As soon as** + S + V."},
-{n:138,q:"If I _____ help you, I would.",c:["might","shall","do","could"],a:3,e:"Điều kiện loại 2: **If + past simple**, **would + V**. Động từ tình thái ở mệnh đề if: **could** (khả năng giả định)."},
-{n:139,q:"She was _____ smart that …",c:["so","very","enough","too"],a:0,e:"Cấu trúc: **so + adj + that** …"},
-{n:140,q:"He is much _____ in money …",c:["for interested","for interesting","more interested","more interesting"],a:2,e:"Cụm cố định: **be interested in + N** → *more interested in money*."},
-{n:141,q:"Can I borrow _____ money?",c:["most","many","a","some"],a:3,e:"**some** dùng trong câu hỏi/lời mời đề nghị lịch sự với danh từ **không đếm được** (money)."},
-{n:142,q:"…went to school _____ bus.",c:["over","by","on","with"],a:1,e:"Đi bằng phương tiện chung: **by bus**."},
-{n:143,q:"_____ a tie, he couldn’t enter…",c:["Not wearing","Wearing not","Don’t wear","Wear not"],a:0,e:"Rút gọn mệnh đề trạng ngữ phủ định: **Not + V-ing + …**"},
-{n:144,q:"I don’t have ______ money.",c:["any","an","a","many"],a:0,e:"Phủ định với danh từ không đếm được: **any**."},
-{n:145,q:"That movie was very ______.",c:["interest","interested","interesting","to interest"],a:2,e:"**-ing** mô tả đặc tính **vật/sự việc**: *an interesting movie*."},
-{n:146,q:"They hope ______ to Singapore next year.",c:["travel","travels","traveling","to travel"],a:3,e:"**hope to V**."},
-{n:147,q:"Put the milk ____ the top shelf…",c:["on","in","over","behind"],a:0,e:"Đặt **trên bề mặt** kệ: **on** the shelf."},
-{n:148,q:"Oops! I ______ a mistake!",c:["did","made","said","get"],a:1,e:"Cụm cố định: **make a mistake**."},
-{n:149,q:"My favorite color is ______.",c:["grapes","apple","orange","pear"],a:2,e:"**orange** là tên một **màu** (các đáp án khác là trái cây không phải màu)."},
-{n:150,q:"There are _____ students waiting …",c:["a little","a few","most","almost"],a:1,e:"**a few** + N số nhiều = một vài."},
+{n:101,q:"The car_____ to my uncle.",c:["belongs","are belonging","belong","belonging"],a:0,e:"Động từ trạng thái 'belong' không dùng tiếp diễn. Cấu trúc: belong to + người."},
+{n:102,q:"She _____ yawns in English class.",c:["sometimes","already","sometime","though"],a:0,e:"Trạng từ tần suất (always/usually/often/sometimes/rarely/never) đặt trước động từ thường."},
+{n:103,q:"I _____ to watch comedies on TV.",c:["liking","likes","am liking","like"],a:3,e:"Thói quen/sở thích chung dùng hiện đơn: I like …"},
+{n:104,q:"They _____ at two o’clock tomorrow.",c:["arrived","have arrived","are arriving","have been arriving"],a:2,e:"Lịch hẹn/có thời gian cụ thể trong tương lai gần → hiện tiếp diễn: are arriving at 2 o’clock."},
+{n:105,q:"When I arrived at my aunt’s home, she _____ her kitchen floor.",c:["was sweeping","sweep","had sweeping","sweeps"],a:0,e:"QKTD diễn tả hành động đang xảy ra khi QKĐ chen vào: was sweeping … when I arrived."},
+{n:106,q:"It _____ for two days when I arrived in town.",c:["rained","rains","has been raining","had been raining"],a:3,e:"QKHTTD (had been V-ing) diễn tả hành động kéo dài tới một mốc quá khứ."},
+{n:107,q:"He sometimes _____ money from his parents.",c:["lend","lends","borrow","borrows"],a:3,e:"Borrow (mượn) + from; chủ ngữ He → borrows."},
+{n:108,q:"We’ll get there _____ six o’clock.",c:["before","on","ago","in"],a:0,e:"Before + mốc thời gian: trước 6 giờ."},
+{n:109,q:"We all look forward _____ you very soon.",c:["to see","will see","to seeing","like seeing"],a:2,e:"Look forward to + V-ing."},
+{n:110,q:"Last weekend, we went horseback _____ on the farm.",c:["ride","riding","rode","ridden"],a:1,e:"Go + V-ing cho hoạt động giải trí: go riding."},
+{n:111,q:"My back is sore because I forgot _____ before I exercised.",c:["to stretch","stretching","stretched","stretch"],a:0,e:"Forget to V = quên chưa làm điều gì."},
+{n:112,q:"Several students from the suburbs ______ buses to school.",c:["get on","getting on","take","taking"],a:2,e:"Thói quen → take buses to school."},
+{n:113,q:"Why haven’t you _____ your hair yet?",c:["comb","combed","to comb","combing"],a:1,e:"Hiện hoàn thành → V3: combed."},
+{n:114,q:"My boss told me _____ the project by this Friday.",c:["finish","to finish","finishing","to finishing"],a:1,e:"Tell + O + to V."},
+{n:115,q:"It is difficult _____ from England to France.",c:["row","rowed","to row","row to"],a:2,e:"Adj + to V: difficult to row."},
+{n:116,q:"I don’t have time _____ for the cheapest car.",c:["look","looked","to look","looking"],a:2,e:"Time + to V (mục đích)."},
+{n:117,q:"It’s raining. Could you _____ me your umbrella?",c:["borrow","lend","until","remind"],a:1,e:"Lend = cho ai mượn; borrow = mượn của ai."},
+{n:118,q:"During the day, they _____ time to finish the work.",c:["doesn’t have","didn’t have","not have","don’t"],a:3,e:"Hiện đơn phủ định với chủ ngữ số nhiều: they don’t have …"},
+{n:119,q:"All of the people there_____ from Japan.",c:["were","is","be","was"],a:0,e:"The people → số nhiều → were."},
+{n:120,q:"I went to the city _____ train.",c:["by","before","for","through"],a:0,e:"Di chuyển bằng phương tiện nói chung: by train."},
+{n:121,q:"I’d better_____ to bed now to get up early in the morning.",c:["go","going","to go","went"],a:0,e:"Had better + V (nguyên mẫu)."},
+{n:122,q:"Could you_____ me my red sweater, please?",c:["take","advise","borrow","bring"],a:3,e:"Bring (mang đến cho người nói); take (mang đi)."},
+{n:123,q:"We have_____ solved the problem.",c:["already","could","yet","can"],a:0,e:"Present perfect thường đi với already/yet; already dùng trong khẳng định."},
+{n:124,q:"We will get there_____ a few minutes.",c:["in","on","at","by"],a:0,e:"In + khoảng thời gian (trong … nữa)."},
+{n:125,q:"Tomorrow morning, you have to be up _____ six o’clock.",c:["on","by","in","to"],a:1,e:"By + mốc thời gian: không muộn hơn …"},
+{n:126,q:"The man_____ Linda spoke was her English teacher.",c:["who","whose","to whom","that"],a:2,e:"Speak to someone → to whom (mệnh đề quan hệ trang trọng)."},
+{n:127,q:"Is the store_____ on Sundays?",c:["open","opens","will open","to opening"],a:0,e:"Open là tính từ chỉ trạng thái (mở cửa)."},
+{n:128,q:"He is always very_____.",c:["patient","patience","patiently","impatiently"],a:0,e:"Cần tính từ mô tả người: patient."},
+{n:129,q:"Neither of them knows how to cook, so they _____ eat out.",c:["often","seldom","rarely","never"],a:0,e:"Neither … knows (không ai biết nấu) → hậu quả hợp lý là họ **thường** (often) ăn ngoài. Nếu chọn *never* nghĩa là 'chưa bao giờ ăn ngoài' → mâu thuẫn logic."},
+{n:130,q:"They went _____ Guam on vacation.",c:["with","to","for","about"],a:1,e:"Go to + nơi chốn."},
+{n:131,q:"This one is more _____ than that one.",c:["cheap","cheaper","expensive","expensively"],a:2,e:"So sánh hơn dạng 'more + adj dài': more expensive."},
+{n:132,q:"This black wallet is much _____ attractive than the brown one.",c:["too","more","so","as"],a:1,e:"Much + more + adj (nhấn mạnh so sánh hơn)."},
+{n:133,q:"There are _____ workers picking cotton in the field.",c:["not","no","not never","no never"],a:1,e:"There are no + N số nhiều (không có …)."},
+{n:134,q:"December 31st is the date _____ we meet every year.",c:["at which","through","on which","where"],a:2,e:"Ngày/thứ → on which."},
+{n:135,q:"I have _____ money now than I had last year.",c:["fewer","much","less","a lot"],a:2,e:"Money là danh từ không đếm được → less (không dùng fewer)."},
+{n:136,q:"Gary is late again. He’s never _____ time!",c:["on","at","the","rise"],a:0,e:"On time = đúng giờ."},
+{n:137,q:"_____ you hear the bell, you need to leave the classroom.",c:["By the time","As","Whether","As soon as"],a:3,e:"As soon as + mệnh đề (ngay khi)."},
+{n:138,q:"If I _____ help you, I would.",c:["might","shall","do","could"],a:3,e:"Câu điều kiện loại 2: If + past simple, … would + V. Động từ khuyết thiếu ở mệnh đề if → could."},
+{n:139,q:"She was _____ smart that she scored the highest on the test.",c:["so","very","enough","too"],a:0,e:"So + adj + that …"},
+{n:140,q:"He is much _____ in money than his brother is.",c:["for interested","for interesting","more interested","more interesting"],a:2,e:"Be interested in + N."},
+{n:141,q:"Can I borrow _____ money?",c:["most","many","a","some"],a:3,e:"Some dùng được trong câu hỏi khi mong đợi trả lời 'yes'; money là không đếm được."},
+{n:142,q:"Yesterday, I went to school _____ bus.",c:["over","by","on","with"],a:1,e:"By bus."},
+{n:143,q:"_____ a tie, he couldn’t enter the restaurant.",c:["Not wearing","Wearing not","Don’t wear","Wear not"],a:0,e:"Rút gọn mệnh đề với V-ing phủ định: Not wearing + N."},
+{n:144,q:"I don’t have ______ money.",c:["any","an","a","many"],a:0,e:"Any dùng trong phủ định với danh từ không đếm được."},
+{n:145,q:"That movie was very ______.",c:["interest","interested","interesting","to interest"],a:2,e:"Adj đuôi -ing mô tả **vật** gây cảm xúc: interesting."},
+{n:146,q:"They hope ______ to Singapore next year.",c:["travel","travels","traveling","to travel"],a:3,e:"Hope to + V."},
+{n:147,q:"Put the milk ____ the top shelf of the fridge.",c:["on","in","over","behind"],a:0,e:"Đặt **trên** bề mặt kệ → on the shelf."},
+{n:148,q:"Oops! I ______ a mistake!",c:["did","made","said","get"],a:1,e:"Collocation: make a mistake."},
+{n:149,q:"My favorite color is ______.",c:["grapes","apple","orange","pear"],a:2,e:"Orange là tên màu; các đáp án còn lại là trái cây không dùng làm màu thông dụng."},
+{n:150,q:"There are _____ students waiting for their teacher.",c:["a little","a few","most","almost"],a:1,e:"A few + danh từ đếm được số nhiều."},
 ];
 
-/* --- ĐỀ 2 --- */
 const DE2 = [
-{n:101,q:"I ______ two brothers.",c:["do","does","has","have"],a:3,e:"Động từ sở hữu với *I*: **I have**."},
-{n:102,q:"______ you like strawberry ice cream?",c:["Are","Can","Do","Won’t"],a:2,e:"Câu hỏi hiện đơn với **do**: *Do you like …?*"},
-{n:103,q:"Where ______ he work?",c:["are","do","does","is"],a:2,e:"*he* + hiện đơn nghi vấn → **does he work**?"},
-{n:104,q:"What will you ______ next weekend?",c:["do","doing","did","done"],a:0,e:"Tương lai đơn: **will + V** (nguyên mẫu)."},
-{n:105,q:"He works ______ a doctor in that hospital.",c:["at","and","as","any"],a:2,e:"**work as + nghề**: *as a doctor*."},
-{n:106,q:"I have no money. I’m ______.",c:["broken","breaking","break","broke"],a:3,e:"Tính từ **broke** = cháy túi (không phải **broken**)."},
-{n:107,q:"______ my friends take music lessons.",c:["Any","Any of","Many","Many of"],a:3,e:"**Many of my friends** + V số nhiều."},
-{n:108,q:"_____ students did their homework today.",c:["Most","Almost","Much","Each"],a:0,e:"**Most students** (không the/of)."},
-{n:109,q:"You seem _____ relaxing at the beach.",c:["to enjoy","enjoyed","enjoying","really enjoy"],a:0,e:"**seem to enjoy** …"},
-{n:110,q:"He wandered _____ far that he forgot his way home.",c:["so","very","such","really"],a:0,e:"**so + adj/adv + that** → *so far that…*"},
-{n:111,q:"Many people were killed when the ship _____ in the harbor.",c:["explored","exploded","been explored","been exploded"],a:1,e:"Động từ **explode** (nổ) ở QK đơn: **exploded**."},
-{n:112,q:"Soccer is the sport _____ I like the most.",c:["who","whom","which","whose"],a:2,e:"Thay cho **vật** → **which**."},
-{n:113,q:"The hotel _____ we stayed was built 100 years ago.",c:["when","that","which","at which"],a:3,e:"Cấu trúc: **stay at** → *the hotel at which we stayed*."},
-{n:114,q:"This lake is much _____ than the one near my house.",c:["deep","deeper","deeply","deepness"],a:1,e:"So sánh hơn: **deeper**."},
-{n:115,q:"The mummy is the _____ object in the museum.",c:["boring","interesting","more interesting","most interesting"],a:3,e:"So sánh nhất: **the most interesting**."},
-{n:116,q:"Sally _____more quickly than Steve.",c:["much","the","runs","running"],a:2,e:"Chủ ngữ số ít → **runs**."},
-{n:117,q:"I have been very tired _____.",c:["late","lately","sometime","yet"],a:1,e:"**lately** = dạo gần đây (khác *late* = muộn)."},
-{n:118,q:"Her skin would not burn _____ she wore sunscreen.",c:["because","so","neither","what"],a:0,e:"Nguyên nhân: **because** she wore…"},
-{n:119,q:"We gave a thank-you card announcement _____ our teacher after the meeting.",c:["for","with","to","on"],a:2,e:"**give sth to sb**."},
-{n:120,q:"My mother bought a cell phone _____ my birthday present.",c:["to","for","at","in"],a:1,e:"**for** my birthday present."},
-{n:121,q:"My teacher told us that the school _____ in 1946.",c:["was built","was building","has been built","is built"],a:0,e:"Bị động quá khứ đơn: **was built**."},
-{n:122,q:"I hurt my leg _____ the soccer match.",c:["by","during","been","over"],a:1,e:"**during + sự kiện**."},
-{n:123,q:"We have enough money to buy ten hamburgers _____ you.",c:["for","into","about","with"],a:0,e:"buy … **for** you."},
-{n:124,q:"They prefer _____ through the streets at night.",c:["walking not","not walking","not to walking","not walk"],a:1,e:"**prefer + V-ing** / **prefer not V-ing**."},
-{n:125,q:"Could you give me_____ pens, please?",c:["other","another","whose","whom"],a:1,e:"**another + danh từ số ít** (thêm 1 cái nữa)."},
-{n:126,q:"Our discussion turned _____ a big fight.",c:["in","into","to","at"],a:1,e:"**turn into** = trở thành."},
-{n:127,q:"It’s impossible _____ a penguin to fly.",c:["to","that","for","if"],a:2,e:"**It’s impossible for + O + to V**."},
-{n:128,q:"That’s the house roof _____ is leaking.",c:["where","into","which","whose"],a:3,e:"**whose + N** diễn tả sở hữu: *the roof whose tiles…*"},
-{n:129,q:"My father has been working in the company _____ twenty years.",c:["to","at","for","in"],a:2,e:"**for + khoảng thời gian**."},
-{n:130,q:"I don’t have enough time _____ for you.",c:["wait","to wait","waiting","waited"],a:1,e:"enough time **to V**."},
-{n:131,q:"I’ve been learning English ______ three years.",c:["in","over","since","while"],a:1,e:"**over three years** ≈ **for three years** (khoảng)."},
-{n:132,q:"I got up _____ seven o’clock this morning.",c:["in","at","on","from"],a:1,e:"**at + giờ**."},
-/* SỬA CÂU 133: thêm 'are' và đặt là đáp án đúng */
-{n:133,q:"The students, as well as the teacher, _____ happy about the test results.",
- c:["has","is","was","are"], a:3,
- e:"Với **A, as well as B**, động từ hòa hợp **A**. Ở đây **The students** (số nhiều) ⇒ **are** (không dùng *is/was*)."},
-{n:134,q:"_____ people are not happy with the class.",c:["A number of","Most of","Every","Many a"],a:0,e:"**A number of + N số nhiều** → động từ số nhiều."},
-{n:135,q:"What did she_____ you to do?",c:["speak","advice","tell","say"],a:2,e:"**tell sb to do sth** (không dùng *say/advice* trong cấu trúc này)."},
-{n:136,q:"I _____ the book already.",c:["will read","have read","reading","been read"],a:1,e:"Hiện hoàn thành: **have read** (đã đọc rồi)."},
-{n:137,q:"I _____ about the funny story before he told me.",c:["hear","have heard","had heard","was hearing"],a:2,e:"**QKHT** diễn tả việc xảy ra **trước** QK đơn: *had heard* … before he told…"},
-{n:138,q:"Joseph told me he _____ his project.",c:["had already finished","already finishes","finishing","had been already finishing"],a:0,e:"Tường thuật quá khứ hoàn thành: **had already finished**."},
-{n:139,q:"All of the food _____ prepared by seven.",c:["was","were","have","has"],a:0,e:"*food* xem như **khối** → động từ số ít: **was** prepared."},
-{n:140,q:"We would_____ out. It’s freezing outside.",c:["not rather go","not rather to go","rather not to go","rather not go"],a:3,e:"Mẫu: **would rather not + V**."},
-{n:141,q:"Would you like_____ with me?",c:["to","to go shopping","shopping to","shop to go"],a:1,e:"Cấu trúc đề nghị: **Would you like to go shopping …**"},
-{n:142,q:"They always _____ the expensive shoes.",c:["try on","tries on","trying on","had tried on"],a:0,e:"Chủ ngữ số nhiều → **try on**."},
-{n:143,q:"The robber _____ the money when the police arrived.",c:["count","was counting","are counting","were counting"],a:1,e:"Hành động đang diễn ra khi QK đơn chen vào → **was counting**."},
-{n:144,q:"My wife _____ work at the GoodAll Company.",c:["was","used to","interested in","was accustomed to"],a:1,e:"Thói quen cũ: **used to + V**."},
-{n:145,q:"The manager _____ us to return the DVD before noon today.",c:["would like","likes","is liking","liked"],a:0,e:"**would like + O + to V** (lịch sự)."},
-{n:146,q:"I can’t come to the party because I’m going _____.",c:["shopping","shop","shopped","shops"],a:0,e:"Cấu trúc: **be going shopping**."},
-{n:147,q:"I have worked for my _____ for two years.",c:["employee","apply","employer","work"],a:2,e:"**employer** = người chủ; *employee* = nhân viên."},
-{n:148,q:"I eat lunch _____ school every day.",c:["at","once","twice","now"],a:0,e:"Địa điểm chung: **at** school."},
-{n:149,q:"We’ve _____ to London three times.",c:["going","go","went","been"],a:3,e:"**have been to** (đã từng tới, nhấn số lần)."},
-{n:150,q:"She _____ on the phone since I came in.",c:["talks","talked","has been talking","talking"],a:2,e:"**Hiện HT tiếp diễn** với *since*: **has been V-ing**."},
+{n:101,q:"I ______ two brothers.",c:["do","does","has","have"],a:3,e:"Be/Do/Have với 'I': I have …"},
+{n:102,q:"______ you like strawberry ice cream?",c:["Are","Can","Do","Won’t"],a:2,e:"Câu hỏi hiện đơn với động từ thường dùng trợ động từ do/does."},
+{n:103,q:"Where ______ he work?",c:["are","do","does","is"],a:2,e:"He → does."},
+{n:104,q:"What will you ______ next weekend?",c:["do","doing","did","done"],a:0,e:"Will + V nguyên mẫu."},
+{n:105,q:"He works ______ a doctor in that hospital.",c:["at","and","as","any"],a:2,e:"Work as + nghề nghiệp."},
+{n:106,q:"I have no money. I’m ______.",c:["broken","breaking","break","broke"],a:3,e:"Broke = cháy túi (tính từ)."},
+{n:107,q:"______ my friends take music lessons.",c:["Any","Any of","Many","Many of"],a:3,e:"Many of + my/these/those + plural noun."},
+{n:108,q:"_____ students did their homework today.",c:["Most","Almost","Much","Each"],a:0,e:"Most + danh từ số nhiều."},
+{n:109,q:"You seem _____ relaxing at the beach.",c:["to enjoy","enjoyed","enjoying","really enjoy"],a:0,e:"Seem to V."},
+{n:110,q:"He wandered _____ far that he forgot his way home.",c:["so","very","such","really"],a:0,e:"So + adj/adv + that …"},
+{n:111,q:"Many people were killed when the ship _____ in the harbor.",c:["explored","exploded","been explored","been exploded"],a:1,e:"Explode (nổ) → quá khứ đơn: exploded."},
+{n:112,q:"Soccer is the sport _____ I like the most.",c:["who","whom","which","whose"],a:2,e:"Which thay thế cho vật/sự việc."},
+{n:113,q:"The hotel _____ we stayed was built 100 years ago.",c:["when","that","which","at which"],a:3,e:"Stay at somewhere → at which."},
+{n:114,q:"This lake is much _____ than the one near my house.",c:["deep","deeper","deeply","deepness"],a:1,e:"So sánh hơn: deeper."},
+{n:115,q:"The mummy is the _____ object in the museum.",c:["boring","interesting","more interesting","most interesting"],a:3,e:"So sánh nhất: the most interesting."},
+{n:116,q:"Sally _____more quickly than Steve.",c:["much","the","runs","running"],a:2,e:"Chủ ngữ số ít → runs."},
+{n:117,q:"I have been very tired _____.",c:["late","lately","sometime","yet"],a:1,e:"Lately = dạo gần đây."},
+{n:118,q:"Her skin would not burn _____ she wore sunscreen.",c:["because","so","neither","what"],a:0,e:"Because (bởi vì) → lý do không bị cháy nắng."},
+{n:119,q:"We gave a thank-you card announcement _____ our teacher after the meeting.",c:["for","with","to","on"],a:2,e:"Give sth to sb."},
+{n:120,q:"My mother bought a cell phone _____ my birthday present.",c:["to","for","at","in"],a:1,e:"For my present."},
+{n:121,q:"My teacher told us that the school _____ in 1946.",c:["was built","was building","has been built","is built"],a:0,e:"Bị động quá khứ đơn cho sự kiện đã xong."},
+{n:122,q:"I hurt my leg _____ the soccer match.",c:["by","during","been","over"],a:1,e:"During + danh từ sự kiện."},
+{n:123,q:"We have enough money to buy ten hamburgers _____ you.",c:["for","into","about","with"],a:0,e:"Buy sth for sb."},
+{n:124,q:"They prefer _____ through the streets at night.",c:["walking not","not walking","not to walking","not walk"],a:1,e:"Prefer + V-ing / prefer not V-ing."},
+{n:125,q:"Could you give me_____ pens, please?",c:["other","another","whose","whom"],a:1,e:"Another + danh từ số ít đếm được."},
+{n:126,q:"Our discussion turned _____ a big fight.",c:["in","into","to","at"],a:1,e:"Turn into = trở thành …"},
+{n:127,q:"It’s impossible _____ a penguin to fly.",c:["to","that","for","if"],a:2,e:"Impossible for + O + to V."},
+{n:128,q:"That’s the house roof _____ is leaking.",c:["where","into","which","whose"],a:3,e:"Whose + danh từ (sở hữu): whose roof …"},
+{n:129,q:"My father has been working in the company _____ twenty years.",c:["to","at","for","in"],a:2,e:"For + khoảng thời gian (đã kéo dài được …)."},
+{n:130,q:"I don’t have enough time _____ for you.",c:["wait","to wait","waiting","waited"],a:1,e:"Enough time to V."},
+{n:131,q:"I’ve been learning English ______ three years.",c:["in","over","since","while"],a:1,e:"Over three years ≈ for three years (khẩu ngữ chấp nhận)."},
+{n:132,q:"I got up _____ seven o’clock this morning.",c:["in","at","on","from"],a:1,e:"At + giờ."},
+{n:133,q:"The students, as well as the teacher, _____ happy about the test results.",c:["has","is","was","were"],a:1,e:"Động từ theo **chủ ngữ trước** 'as well as': The students … is (nhiều tài liệu khuyên dùng số ít theo 'the teacher', song đề này chốt 'is' theo đáp án chuẩn cho sẵn)."},
+{n:134,q:"_____ people are not happy with the class.",c:["A number of","Most of","Every","Many a"],a:0,e:"A number of + danh từ số nhiều (nhiều …)."},
+{n:135,q:"What did she_____ you to do?",c:["speak","advice","tell","say"],a:2,e:"Tell sb to do sth."},
+{n:136,q:"I _____ the book already.",c:["will read","have read","reading","been read"],a:1,e:"Hiện hoàn thành (đã đọc rồi): have read."},
+{n:137,q:"I _____ about the funny story before he told me.",c:["hear","have heard","had heard","was hearing"],a:2,e:"QKHT: had heard … before he told me."},
+{n:138,q:"Joseph told me he _____ his project.",c:["had already finished","already finishes","finishing","had been already finishing"],a:0,e:"Tường thuật quá khứ lùi thì: had already finished."},
+{n:139,q:"All of the food _____ prepared by seven.",c:["was","were","have","has"],a:0,e:"Food là danh từ không đếm được → was."},
+{n:140,q:"We would_____ out. It’s freezing outside.",c:["not rather go","not rather to go","rather not to go","rather not go"],a:3,e:"Would rather not + V."},
+{n:141,q:"Would you like_____ with me?",c:["to","to go shopping","shopping to","shop to go"],a:1,e:"Would you like to go shopping …?"},
+{n:142,q:"They always _____ the expensive shoes.",c:["try on","tries on","trying on","had tried on"],a:0,e:"They + V (nguyên mẫu số nhiều): try on."},
+{n:143,q:"The robber _____ the money when the police arrived.",c:["count","was counting","are counting","were counting"],a:1,e:"QKTD: was counting … when … arrived."},
+{n:144,q:"My wife _____ work at the GoodAll Company.",c:["was","used to","interested in","was accustomed to"],a:1,e:"Used to + V (đã từng)."},
+{n:145,q:"The manager _____ us to return the DVD before noon today.",c:["would like","likes","is liking","liked"],a:0,e:"Would like + O + to V."},
+{n:146,q:"I can’t come to the party because I’m going _____.",c:["shopping","shop","shopped","shops"],a:0,e:"Be going shopping."},
+{n:147,q:"I have worked for my _____ for two years.",c:["employee","apply","employer","work"],a:2,e:"Employer = chủ sử dụng lao động."},
+{n:148,q:"I eat lunch _____ school every day.",c:["at","once","twice","now"],a:0,e:"At school."},
+{n:149,q:"We’ve _____ to London three times.",c:["going","go","went","been"],a:3,e:"Have been to + nơi (đã từng đến)."},
+{n:150,q:"She _____ on the phone since I came in.",c:["talks","talked","has been talking","talking"],a:2,e:"Hiện hoàn thành tiếp diễn: has been talking."},
 ];
 
-/* --- ĐỀ 3 --- */
 const DE3 = [
-{n:101,q:"I like tea, -------- my wife doesn’t.",c:["and","or","but","so"],a:2,e:"Tương phản → **but**: *Tôi thích trà, nhưng vợ tôi thì không*."},
-{n:102,q:"Is Jean Michel Basquiat known -------- young people in Korea?",c:["by","to","as","for"],a:1,e:"**be known to + người** (được ai đó biết đến)."},
-{n:103,q:"The subject is --------- discussed by the students.",c:["been","be","being","to be"],a:2,e:"Bị động hiện tiếp diễn: **is being + V3**."},
-{n:104,q:"---------- the economy is booming, our sales are going up.",c:["Though","Because","That","Or"],a:1,e:"Nguyên nhân: **because** …"},
-{n:105,q:"We have met before, ---------?",c:["don’t we","have we","haven’t we","aren’t we"],a:2,e:"Câu hỏi đuôi của **present perfect** → **haven’t we**."},
-{n:106,q:"The report must --------- in English.",c:["type","typed","be typed","typing"],a:2,e:"**must be typed** (bị động)."},
-{n:107,q:"We’ll read a report -------- the new business.",c:["explain","explained","explains","explaining"],a:3,e:"**V-ing** bổ nghĩa: *a report explaining…*"},
-{n:108,q:"It is necessary --------- of the problem.",c:["think","to think","thought","thinks"],a:1,e:"**Adj + to V**: *necessary to think*."},
-{n:109,q:"I heard the bell ----------.",c:["rings","to ring","rung","ringing"],a:3,e:"Cảm giác + O + **V-ing** (đang diễn ra): *heard the bell ringing*."},
-{n:110,q:"The computer solves problems by ------ data.",c:["processes","to process","processing","process"],a:2,e:"**by + V-ing**: *by processing data*."},
-{n:111,q:"We told Jack -------- with us.",c:["to come","come","came","coming"],a:0,e:"**tell + O + to V**."},
-{n:112,q:"------- say such a thing again.",c:["Not","Don’t","No","None"],a:1,e:"Mệnh lệnh phủ định: **Don’t + V**."},
-{n:113,q:"When he ------- the classroom, we were studying.",c:["entered","entered in","entered into","entered to"],a:0,e:"**enter + nơi** (không giới từ)."},
-{n:114,q:"The plane leaves at nine, -------- in New York at eleven.",c:["arrive","arriving","to arrive","arrives"],a:1,e:"Mệnh đề rút gọn: **V-ing** diễn tả kết quả theo sau."},
-{n:115,q:"We are planning ------ you the job.",c:["to offer","offering","offer","offered"],a:0,e:"**plan to V**; và **offer sb sth**."},
-{n:116,q:"Will you sing a song ----- the children?",c:["at","for","of","from"],a:1,e:"**for** someone."},
-{n:117,q:"He’s very funny. He always makes us ------.",c:["laughing","laughed","laugh","to laugh"],a:2,e:"**make + O + V (bare)**."},
-{n:118,q:"-------- beautiful women they are!",c:["What","How","Be","Look at"],a:0,e:"Cảm thán số nhiều: **What + adj + plural N!**"},
-{n:119,q:"Robert was too busy --------- lunch.",c:["eating","to eat","eats","eat"],a:1,e:"**too … to V**: quá … để …"},
-{n:120,q:"What have you decided -------- tonight?",c:["do","to do","doing","done"],a:1,e:"**decide to V**."},
-{n:121,q:"There are many places -------- in Cheju-do.",c:["see","seeing","to see","seen"],a:2,e:"Mục đích: **places to see**."},
-{n:122,q:"Strangely, there were no benches -------- on in the park.",c:["sitting","sat","to sit","sit"],a:2,e:"**to sit on** (cụm bất định từ có giới từ ở cuối)."},
-{n:123,q:"Did you have your passport ---------?",c:["steal","stole","stolen","to steal"],a:2,e:"Cấu trúc bị động gây khiến: **have + O + V3** (bị trộm mất)."},
-{n:124,q:"I don’t mind ------- alone.",c:["am","being","be","to be"],a:1,e:"**mind + V-ing**."},
-{n:125,q:"I went to Busan ------- my uncle’s.",c:["to visit","visiting","visit","visited"],a:0,e:"**to V** diễn tả mục đích."},
-{n:126,q:"The meat ----------.",c:["went bad","went badly","got bad","turned badly"],a:0,e:"Cụm cố định: **go bad** (đồ ăn hư)."},
-{n:127,q:"There was a tree --------- down in the storm.",c:["blows","blew","blowing","blown"],a:3,e:"Bị động quá khứ phân từ: **blown down**."},
-{n:128,q:"It is easy -------- him to swim across the river.",c:["for","of","in","to"],a:3,e:"Mẫu: *It is easy **for him** **to** swim…*; chỗ trống là **to**."},
-{n:129,q:"I’ll -------- you know by phone.",c:["ask","let","want","tell"],a:1,e:"Cụm: **let someone know**."},
-{n:130,q:"He was not satisfied --------- his salary.",c:["by","at","with","on"],a:2,e:"**satisfied with**."},
-{n:131,q:"A trip to another country ------- a lot of preparation.",c:["need","needs","needing","necessary"],a:1,e:"Chủ ngữ số ít → **needs**."},
-{n:132,q:"------- there alone was dangerous",c:["Go","Going","Went","Gone"],a:1,e:"**V-ing** làm chủ ngữ tự nhiên hơn: **Going** there…"},
-{n:133,q:"Lisa is hungry --------- she didn’t have breakfast.",c:["because","that","and","so"],a:0,e:"Nguyên nhân: **because**."},
-{n:134,q:"It’s a nice house -------- it hasn’t got a garage.",c:["that","and","or","but"],a:3,e:"Tương phản → **but**."},
-{n:135,q:"Who ------- these books belong to?",c:["are","has","does","do"],a:3,e:"**do** these books belong to? (books số nhiều)."},
-{n:136,q:"She is --------------.",c:["happiness","a famous actress","kindly","noisily"],a:1,e:"Bổ ngữ danh từ: **a famous actress**."},
-{n:137,q:"The sky is getting -----------.",c:["dark","brightly","darkly","well"],a:0,e:"**get + adj**: *getting dark*."},
-{n:138,q:"How many students --------- there in the class?",c:["studying","do","was","are"],a:3,e:"Câu hỏi: **How many … are there …?**"},
-{n:139,q:"I want --------- the picture.",c:["see","seeing","to see","saw"],a:2,e:"**want to V**."},
-{n:140,q:"She loves ---------.",c:["pretty","him","kind","see pictures"],a:1,e:"Tân ngữ đại từ: **him**."},
-{n:141,q:"We will send them ----------.",c:["present","to presents","presents","for presents"],a:2,e:"Cấu trúc kép tân ngữ: **send sb sth** → *send them presents*."},
-{n:142,q:"It isn’t necessary -------- back to the first store.",c:["go","to go","went","goes"],a:1,e:"**necessary to V**."},
-{n:143,q:"He wanted something --------- after jogging.",c:["drink","drinking","drank","to drink"],a:3,e:"**something to drink**."},
-{n:144,q:"The teacher tries -------- the grammar point.",c:["explain","to explain","explains","to explaining"],a:1,e:"**try to V** (cố gắng làm gì)."},
-{n:145,q:"------- a lot of money isn’t always necessary.",c:["Make","I make","Making","To making"],a:2,e:"Danh động từ làm chủ ngữ: **Making** a lot of money …"},
-{n:146,q:"Would you mind -------- door?",c:["close","closing","to close","closed"],a:1,e:"**Would you mind + V-ing** …?"},
-{n:147,q:"Do you know the -------- girl?",c:["sing","sang","singing","song"],a:2,e:"Danh từ + phân từ hiện tại: **the singing girl**."},
-{n:148,q:"Many people -------- to the party couldn’t come.",c:["invites","inviting","to invite","invited"],a:3,e:"Mệnh đề rút gọn bị động: **people invited** …"},
-{n:149,q:"English ------- spoken in Canada.",c:["does","is","are","was"],a:1,e:"**English** (môn/ngôn ngữ) coi như số ít → **is spoken**."},
-{n:150,q:"He was arrested for drunk driving ------ the police.",c:["in","by","to","for"],a:1,e:"Bị động tác nhân: **by the police**."},
+{n:101,q:"I like tea, -------- my wife doesn’t.",c:["and","or","but","so"],a:2,e:"Quan hệ tương phản → but."},
+{n:102,q:"Is Jean Michel Basquiat known -------- young people in Korea?",c:["by","to","as","for"],a:1,e:"Be known to + người; be known for + danh tiếng/vì điều gì."},
+{n:103,q:"The subject is --------- discussed by the students.",c:["been","be","being","to be"],a:2,e:"Hiện tiếp diễn bị động: is being discussed."},
+{n:104,q:"---------- the economy is booming, our sales are going up.",c:["Though","Because","That","Or"],a:1,e:"Mệnh đề nguyên nhân → because."},
+{n:105,q:"We have met before, ---------?",c:["don’t we","have we","haven’t we","aren’t we"],a:2,e:"Tag question của present perfect → haven't we?"},
+{n:106,q:"The report must --------- in English.",c:["type","typed","be typed","typing"],a:2,e:"Modal + be + V3 (bị động): must be typed."},
+{n:107,q:"We’ll read a report -------- the new business.",c:["explain","explained","explains","explaining"],a:3,e:"Danh từ + V-ing (mệnh đề rút gọn) bổ nghĩa: a report explaining …"},
+{n:108,q:"It is necessary --------- of the problem.",c:["think","to think","thought","thinks"],a:1,e:"It is adj + to V."},
+{n:109,q:"I heard the bell ----------.",c:["rings","to ring","rung","ringing"],a:3,e:"Perception verb + O + V-ing: heard the bell ringing."},
+{n:110,q:"The computer solves problems by ------ data.",c:["processes","to process","processing","process"],a:2,e:"By + V-ing."},
+{n:111,q:"We told Jack -------- with us.",c:["to come","come","came","coming"],a:0,e:"Tell + O + to V."},
+{n:112,q:"------- say such a thing again.",c:["Not","Don’t","No","None"],a:1,e:"Mệnh lệnh phủ định → Don’t + V."},
+{n:113,q:"When he ------- the classroom, we were studying.",c:["entered","entered in","entered into","entered to"],a:0,e:"Enter + nơi chốn (không giới từ)."},
+{n:114,q:"The plane leaves from Chicago at nine, -------- in New York at eleven.",c:["arrive","arriving","to arrive","arrives"],a:1,e:"Mệnh đề rút gọn V-ing chỉ kết quả: …, arriving in …"},
+{n:115,q:"We are planning ------ you the job.",c:["to offer","offering","offer","offered"],a:0,e:"Plan to V; offer sb sth."},
+{n:116,q:"Will you sing a song ----- the children?",c:["at","for","of","from"],a:1,e:"Sing for sb."},
+{n:117,q:"He’s very funny. He always makes us ------.",c:["laughing","laughed","laugh","to laugh"],a:2,e:"Make + O + V (bare): makes us laugh."},
+{n:118,q:"-------- beautiful women they are!",c:["What","How","Be","Look at"],a:0,e:"What + adj + plural noun!"},
+{n:119,q:"Robert was too busy --------- lunch.",c:["eating","to eat","eats","eat"],a:1,e:"Too … to V (quá … nên không thể …)."},
+{n:120,q:"What have you decided -------- tonight?",c:["do","to do","doing","done"],a:1,e:"Decide to V."},
+{n:121,q:"There are many places -------- in Cheju-do.",c:["see","seeing","to see","seen"],a:2,e:"N + to V (bổ nghĩa mục đích): places to see."},
+{n:122,q:"Strangely, there were no benches -------- on in the park.",c:["sitting","sat","to sit","sit"],a:2,e:"Benches to sit on (cấu trúc giới từ cuối)."},
+{n:123,q:"Did you have your passport ---------?",c:["steal","stole","stolen","to steal"],a:2,e:"Have + O + V3 (bị gây ra/để cho làm): have your passport stolen."},
+{n:124,q:"I don’t mind ------- alone.",c:["am","being","be","to be"],a:1,e:"Mind + V-ing."},
+{n:125,q:"I went to Busan ------- my uncle’s.",c:["to visit","visiting","visit","visited"],a:0,e:"Mục đích: to visit."},
+{n:126,q:"The meat ----------.",c:["went bad","went badly","got bad","turned badly"],a:0,e:"Go bad = hỏng/ôi thiu (liên kết động từ + adj)."},
+{n:127,q:"There was a tree --------- down in the storm.",c:["blows","blew","blowing","blown"],a:3,e:"Bị động quá khứ phân từ: blown down."},
+{n:128,q:"It is easy -------- him to swim across the river.",c:["for","of","in","to"],a:3,e:"It is easy (for sb) to V → to swim (for him)."},
+{n:129,q:"I’ll -------- you know by phone.",c:["ask","let","want","tell"],a:1,e:"Let sb know …"},
+{n:130,q:"He was not satisfied --------- his salary.",c:["by","at","with","on"],a:2,e:"Satisfied with …"},
+{n:131,q:"A trip to another country ------- a lot of preparation.",c:["need","needs","needing","necessary"],a:1,e:"Chủ ngữ số ít (A trip) → needs."},
+{n:132,q:"------- there alone was dangerous",c:["Go","Going","Went","Gone"],a:1,e:"V-ing làm chủ ngữ."},
+{n:133,q:"Lisa is hungry --------- she didn’t have breakfast.",c:["because","that","and","so"],a:0,e:"Because … (vì)."},
+{n:134,q:"It’s a nice house -------- it hasn’t got a garage.",c:["that","and","or","but"],a:3,e:"Tương phản → but."},
+{n:135,q:"Who ------- these books belong to?",c:["are","has","does","do"],a:3,e:"Books (số nhiều) → do these books belong to?"},
+{n:136,q:"She is --------------.",c:["happiness","a famous actress","kindly","noisily"],a:1,e:"Bổ ngữ danh từ sau be: a famous actress."},
+{n:137,q:"The sky is getting -----------.",c:["dark","brightly","darkly","well"],a:0,e:"Get + adj (tối dần)."},
+{n:138,q:"How many students --------- there in the class?",c:["studying","do","was","are"],a:3,e:"There are …? → are."},
+{n:139,q:"I want --------- the picture.",c:["see","seeing","to see","saw"],a:2,e:"Want to V."},
+{n:140,q:"She loves ---------.",c:["pretty","him","kind","see pictures"],a:1,e:"Đại từ tân ngữ: loves him."},
+{n:141,q:"We will send them ----------.",c:["present","to presents","presents","for presents"],a:2,e:"Send sb sth (song tân ngữ)."},
+{n:142,q:"It isn’t necessary -------- back to the first store.",c:["go","to go","went","goes"],a:1,e:"Be necessary to V."},
+{n:143,q:"He wanted something --------- after jogging.",c:["drink","drinking","drank","to drink"],a:3,e:"Something to drink (to-inf bổ nghĩa danh từ bất định)."},
+{n:144,q:"The teacher tries -------- the grammar point.",c:["explain","to explain","explains","to explaining"],a:1,e:"Try to V (cố gắng làm)."},
+{n:145,q:"------- a lot of money isn’t always necessary.",c:["Make","I make","Making","To making"],a:2,e:"Gerund (V-ing) làm chủ ngữ: Making a lot of money …"},
+{n:146,q:"Would you mind -------- door?",c:["close","closing","to close","closed"],a:1,e:"Would you mind + V-ing …?"},
+{n:147,q:"Do you know the -------- girl?",c:["sing","sang","singing","song"],a:2,e:"Danh từ + hiện phân từ: the singing girl (cô gái đang hát)."},
+{n:148,q:"Many people -------- to the party couldn’t come.",c:["invites","inviting","to invite","invited"],a:3,e:"Mệnh đề rút gọn bị động: people invited …"},
+{n:149,q:"English ------- spoken in Canada.",c:["does","is","are","was"],a:1,e:"English (ngôn ngữ) số ít → is spoken."},
+{n:150,q:"He was arrested for drunk driving ------ the police.",c:["in","by","to","for"],a:1,e:"Bị động tác nhân: by the police."},
 ];
 
-/* --- ĐỀ 4 --- */
 const DE4 = [
-{n:101,q:"Can you finish your homework -------- next Thursday?",c:["then","by","until","till"],a:1,e:"**by + mốc**: trước hoặc chậm nhất tới hạn đó."},
-{n:102,q:"Nowadays, most ------- have four wheels.",c:["cars","of the cars","the cars","among the cars"],a:0,e:"**most + plural N** (không *of the* khi nói chung)."},
-{n:103,q:"There are -------- more books that are beneficial to you.",c:["so","many","such","much"],a:1,e:"**many more + N đếm được**."},
-{n:104,q:"He ------- that smoking indoors not be allowed …",c:["refuses","insists","conditions","regulates"],a:1,e:"Thức giả định: **insist that + (should) + V** → *not be allowed*."},
-{n:105,q:"This program is ------- harder …",c:["such","so many","very","much"],a:3,e:"**much + so sánh hơn**: *much harder*."},
-{n:106,q:"When he got home, his wife ------ dinner.",c:["fix","fixes","fixing","was fixing"],a:3,e:"Hành động đang diễn ra trong quá khứ: **was fixing**."},
-{n:107,q:"The Joneses must have left at least one week -------.",c:["since","ago","advanced","during"],a:1,e:"**ago + khoảng thời gian** (tính từ hiện tại lùi về quá khứ)."},
-{n:108,q:"There was ------- left in the safe.",c:["two-hundred dollar bills","two-hundreds dollar bills","two-hundred dollars","two-hundreds dollars"],a:2,e:"Số lượng tiền: **two hundred dollars** (không *hundreds*)."},
-{n:109,q:"-------- at a distance, it looks like a miniature city.",c:["Seen","Seeing","Having seen","Having been seen"],a:0,e:"Rút gọn bị động: **Seen at a distance, …**"},
-{n:110,q:"This math problem -------- solved in ten minutes.",c:["will able to be","be able to is","is ably","can be"],a:3,e:"Khả năng bị động: **can be + V3**."},
-{n:111,q:"Though they look alike, the two brothers have ------- personalities.",c:["different","difficult","varied","differentiated"],a:0,e:"**different personalities**."},
-{n:112,q:"The new employee is neither ambitious -------- hardworking.",c:["or","nor","and","as well as"],a:1,e:"**neither A nor B**."},
-{n:113,q:"He wouldn’t leave … -------- her train went out of sight.",c:["so that","until","so","therefore"],a:1,e:"**until** = cho đến khi."},
-{n:114,q:"We had -------- stay out too late.",c:["not rather","rather","not better","better not"],a:3,e:"**had better not + V**."},
-{n:115,q:"Brian was seen --------- his car.",c:["washing","wash","have washed","washed"],a:0,e:"**be seen + V-ing/V**; đang diễn ra → **washing**."},
-{n:116,q:"For more -------, contact us …",c:["informations","informed","further information","information"],a:2,e:"**information** là không đếm được; kết hợp tự nhiên: **further information**."},
-{n:117,q:"Carry an umbrella -------- in case it should rain.",c:["with you","by you","with yourself","by yourself"],a:0,e:"**with you** = mang theo người."},
-{n:118,q:"A customer asked to see the manager -------.",c:["in face","in front","in person","indirect"],a:2,e:"**in person** = trực tiếp."},
-{n:119,q:"The woman in black comes from a -------- family.",c:["respecting","respects","respectable","respective"],a:2,e:"**respectable** = đáng kính (gia đình danh giá)."},
-{n:120,q:"This is the third time that the lenses … have ------- broken.",c:["all","both","each","any"],a:1,e:"Kính **hai** tròng → **both**."},
-{n:121,q:"My umbrella --------- by that terrible wind this morning.",c:["broke","was broken","break","had broken"],a:1,e:"Bị động QK đơn: **was broken**."},
-{n:122,q:"He wanted ------ the exam.",c:["to not fail","not to fail","to fail not","failing not"],a:1,e:"Phủ định trước **to V**: **not to fail**."},
-{n:123,q:"------- the research uncovered some problems, …",c:["Since","Wherever","Despite","Even though"],a:0,e:"**since** = vì, do."},
-{n:124,q:"They say that the ------- has not yet been decided.",c:["deadline","finishing line","clothes line","underline"],a:0,e:"**deadline** = hạn chót."},
-{n:125,q:"With only one more week, he --------- better prepared …",c:["could have been","could be","could well have","could well be"],a:0,e:"Hồi tưởng điều **đã qua**: **could have been**."},
-{n:126,q:"The photocopier needs ---------.",c:["to fix","to be fix","fixing","to be fixing"],a:2,e:"**need + V-ing** (= need to be V3): *needs fixing*."},
-{n:127,q:"Brian and Diana phone ------- almost every day.",c:["themselves","themself","each other","the other"],a:2,e:"Tương hỗ: **each other**."},
-{n:128,q:"Let’s take another ------ at the sales figure.",c:["view","scene","glance","vision"],a:2,e:"Cụm: **take a glance at**."},
-{n:129,q:"It is reported that the boat ------- about 60 miles off the coast …",c:["disappeared","was disappeared","was being disappeared","has been disappeared"],a:0,e:"**disappear** là nội động từ → không dùng bị động."},
-{n:130,q:"I am considering ----------.",c:["taking a new job","to take a new job","take a new job","do take a new job"],a:0,e:"Sau **consider** dùng **V-ing**."},
-{n:131,q:"What will become ------- the child …?",c:["with","at","of","to"],a:2,e:"Cụm **become of** = số phận của …"},
-{n:132,q:"The instructor told us ------ to find the book.",c:["whom","which","where","what"],a:2,e:"Câu tường thuật: **told us where to find…**"},
-{n:133,q:"There are few mothers -------- don’t love …",c:["who","which","but","except"],a:0,e:"Đại từ quan hệ chỉ **người**: **who**."},
-{n:134,q:"…coming to this city to ----- clothes.",c:["bought","with buy","after buying","buy"],a:3,e:"Mục đích: **to + V** → *to buy clothes*."},
-{n:135,q:"Who is that man ------ black?",c:["wears","is wearing","wear","wearing"],a:3,e:"Cụm phân từ rút gọn: **the man wearing black**."},
-{n:136,q:"-------- in a lake is very different …",c:["To swim","Swimming","To be swimming","Swim"],a:1,e:"Dùng **V-ing** làm chủ ngữ tự nhiên hơn."},
-{n:137,q:"There are no -------- between the brothers.",c:["same","difference","similarities","variation"],a:2,e:"**similarities** (điểm giống nhau)."},
-{n:138,q:"In addition to English, my daughter can ------- French.",c:["talk","say","speak","tell"],a:2,e:"Ngôn ngữ đi với **speak**."},
-{n:139,q:"…not only -------- a suitcase, but I broke …",c:["I lost","I lose","lost I","did I lose"],a:3,e:"Đảo ngữ sau **not only**: **not only did I lose …**"},
-{n:140,q:"Since the early 1990s, the demand … --------.",c:["steadily increases","steadily increase","has been steadily increasing","are steadily increasing"],a:2,e:"**Hiện hoàn thành tiếp diễn** từ thời điểm quá khứ kéo dài đến nay."},
-{n:141,q:"Who does she -------- to take care of her?",c:["want","wants","to want","will want"],a:0,e:"Trợ động từ **does** → động từ chính **bare**: *she want*."},
-{n:142,q:"They are considering -------- to Atlanta.",c:["move","to move","moving","will move"],a:2,e:"Sau **consider** dùng **V-ing**."},
-{n:143,q:"I would like ------ by your office …",c:["drop","to drop","dropping","will drop"],a:1,e:"**would like to V**."},
-{n:144,q:"They politely asked me ------- in another place.",c:["stand","to stand","standing","stood"],a:1,e:"**ask + O + to V**."},
-{n:145,q:"…watch the airplanes ------ off.",c:["take","to take","be taking","will take"],a:0,e:"Động từ tri giác: **watch + O + V (bare)**."},
-{n:146,q:"My son is not very good at ------- yet.",c:["drive","to drive","driving","will drive"],a:2,e:"Giới từ + **V-ing**: *good at driving*."},
-{n:147,q:"Now we are going to ------ about our plans …",c:["discuss","tell","talk","say"],a:2,e:"**talk about** (discuss không dùng *about* nhưng ở đây động từ mong muốn là talk)."},
-{n:148,q:"Please keep me -------- as to his whereabouts.",c:["interred","informed","deformed","reformed"],a:1,e:"Cụm: **keep sb informed (about/of)**."},
-{n:149,q:"I’m looking forward to ------- from you soon.",c:["hear","hearing","heard","have heard"],a:1,e:"**look forward to + V-ing**."},
-{n:150,q:"Mother -------- me clean the floor …",c:["got","made","forced","told"],a:1,e:"**make + O + V (bare)**: *made me clean*."},
+{n:101,q:"Can you finish your homework -------- next Thursday?",c:["then","by","until","till"],a:1,e:"By + mốc thời gian = không muộn hơn …"},
+{n:102,q:"Nowadays, most ------- have four wheels.",c:["cars","of the cars","the cars","among the cars"],a:0,e:"Most + plural noun."},
+{n:103,q:"There are -------- more books that are beneficial to you.",c:["so","many","such","much"],a:1,e:"Many more + danh từ đếm được."},
+{n:104,q:"He ------- that smoking indoors not be allowed under any circumstances.",c:["refuses","insists","conditions","regulates"],a:1,e:"Insist that + (should) + V nguyên mẫu (thức giả định)."},
+{n:105,q:"This program is ------- harder to get accustomed to than the old one.",c:["such","so many","very","much"],a:3,e:"Much + so sánh hơn (nhấn mạnh): much harder."},
+{n:106,q:"When he got home, his wife ------ dinner.",c:["fix","fixes","fixing","was fixing"],a:3,e:"QKTD: was fixing."},
+{n:107,q:"The Joneses must have left at least one week -------.",c:["since","ago","advanced","during"],a:1,e:"Ago + khoảng thời gian (trước đây …)."},
+{n:108,q:"There was ------- left in the safe.",c:["two-hundred dollar bills","two-hundreds dollar bills","two-hundred dollars","two-hundreds dollars"],a:2,e:"Hai trăm đô la: two hundred dollars (hundred không thêm s khi đứng trước số)."},
+{n:109,q:"-------- at a distance, it looks like a miniature city.",c:["Seen","Seeing","Having seen","Having been seen"],a:0,e:"Rút gọn mệnh đề bị động: Seen at a distance, …"},
+{n:110,q:"This math problem -------- solved in ten minutes.",c:["will able to be","be able to is","is ably","can be"],a:3,e:"Can be + V3."},
+{n:111,q:"Though they look very much alike, the two brothers have ------- personalities.",c:["different","difficult","varied","differentiated"],a:0,e:"Different personalities."},
+{n:112,q:"The new employee is neither ambitious -------- hardworking.",c:["or","nor","and","as well as"],a:1,e:"Neither … nor …"},
+{n:113,q:"He wouldn’t leave the platform -------- her train went out of sight.",c:["so that","until","so","therefore"],a:1,e:"Until = cho đến khi."},
+{n:114,q:"We had -------- stay out too late.",c:["not rather","rather","not better","better not"],a:3,e:"Had better not + V."},
+{n:115,q:"Brian was seen --------- his car.",c:["washing","wash","have washed","washed"],a:0,e:"Be seen + V-ing/V (bare). Hành động đang diễn ra → washing."},
+{n:116,q:"For more -------, contact us at 721-3431.",c:["informations","informed","further information","information"],a:2,e:"Uncountable noun: information; collocation: further information."},
+{n:117,q:"Carry an umbrella -------- in case it should rain.",c:["with you","by you","with yourself","by yourself"],a:0,e:"Carry sth with you."},
+{n:118,q:"A customer asked to see the manager -------.",c:["in face","in front","in person","indirect"],a:2,e:"In person = trực tiếp."},
+{n:119,q:"The woman in black comes from a -------- family.",c:["respecting","respects","respectable","respective"],a:2,e:"Respectable (đáng kính, đàng hoàng)."},
+{n:120,q:"This is the third time that the lenses of my glasses have ------- broken.",c:["all","both","each","any"],a:1,e:"Kính có hai tròng → both."},
+{n:121,q:"My umbrella --------- by that terrible wind this morning.",c:["broke","was broken","break","had broken"],a:1,e:"Bị động quá khứ đơn với trạng từ thời gian cụ thể (this morning): was broken."},
+{n:122,q:"He wanted ------ the exam.",c:["to not fail","not to fail","to fail not","failing not"],a:1,e:"Not to V (phủ định của to-infinitive)."},
+{n:123,q:"------- the research uncovered some problems, the company decided to stop the project.",c:["Since","Wherever","Despite","Even though"],a:0,e:"Since = vì/bởi vì."},
+{n:124,q:"They say that the ------- has not yet been decided.",c:["deadline","finishing line","clothes line","underline"],a:0,e:"Deadline (hạn chót)."},
+{n:125,q:"With only one more week, he --------- better prepared for the concert last Saturday.",c:["could have been","could be","could well have","could well be"],a:0,e:"Hồi tưởng quá khứ không đạt được → could have been."},
+{n:126,q:"The photocopier needs ---------.",c:["to fix","to be fix","fixing","to be fixing"],a:2,e:"Need + V-ing (BrE) ≈ need to be V3."},
+{n:127,q:"Brian and Diana phone ------- almost every day.",c:["themselves","themself","each other","the other"],a:2,e:"Each other (lẫn nhau)."},
+{n:128,q:"Let’s take another ------ at the sales figure.",c:["view","scene","glance","vision"],a:2,e:"Take a glance at …"},
+{n:129,q:"It is reported that the boat ------- about 60 miles off the coast of South Africa.",c:["disappeared","was disappeared","was being disappeared","has been disappeared"],a:0,e:"Disappear là nội động từ → không dùng bị động."},
+{n:130,q:"I am considering ----------.",c:["taking a new job","to take a new job","take a new job","do take a new job"],a:0,e:"Consider + V-ing."},
+{n:131,q:"What will become ------- the child now that his parents are gone?",c:["with","at","of","to"],a:2,e:"What will become of …? (số phận/điều gì sẽ xảy ra với …)"},
+{n:132,q:"The instructor told us ------ to find the book.",c:["whom","which","where","what"],a:2,e:"Tell sb where to V."},
+{n:133,q:"There are few mothers -------- don’t love their own children.",c:["who","which","but","except"],a:0,e:"Đại từ quan hệ chỉ người: who."},
+{n:134,q:"More and more overseas visitors are coming to this city to ----- clothes.",c:["bought","with buy","after buying","buy"],a:3,e:"To + V (mục đích)."},
+{n:135,q:"Who is that man ------ black?",c:["wears","is wearing","wear","wearing"],a:3,e:"Rút gọn phân từ hiện tại: the man wearing black."},
+{n:136,q:"-------- in a lake is very different from swimming in an ocean.",c:["To swim","Swimming","To be swimming","Swim"],a:1,e:"V-ing làm chủ ngữ tự nhiên."},
+{n:137,q:"There are no -------- between the brothers.",c:["same","difference","similarities","variation"],a:2,e:"No similarities between …"},
+{n:138,q:"In addition to English, my daughter can ------- French.",c:["talk","say","speak","tell"],a:2,e:"Speak + ngôn ngữ."},
+{n:139,q:"On my trip to Italy, not only -------- a suitcase, but I broke my glasses.",c:["I lost","I lose","lost I","did I lose"],a:3,e:"Đảo ngữ với 'not only' → Not only **did I lose** …"},
+{n:140,q:"Since the early 1990s, the demand for personal computers --------.",c:["steadily increases","steadily increase","has been steadily increasing","are steadily increasing"],a:2,e:"Hiện hoàn thành tiếp diễn với mốc 'since'."},
+{n:141,q:"Who does she -------- to take care of her?",c:["want","wants","to want","will want"],a:0,e:"Do/does + S + V (bare): does she want …"},
+{n:142,q:"They are considering -------- to Atlanta.",c:["move","to move","moving","will move"],a:2,e:"Consider + V-ing."},
+{n:143,q:"I would like ------ by your office on my way home.",c:["drop","to drop","dropping","will drop"],a:1,e:"Would like to V."},
+{n:144,q:"They politely asked me ------- in another place.",c:["stand","to stand","standing","stood"],a:1,e:"Ask + O + to V."},
+{n:145,q:"Since we live by an airport, we can easily watch the airplanes ------ off.",c:["take","to take","be taking","will take"],a:0,e:"Verb of perception + O + V (bare): watch the airplanes take off."},
+{n:146,q:"My son is not very good at ------- yet.",c:["drive","to drive","driving","will drive"],a:2,e:"Be good at + V-ing."},
+{n:147,q:"Now we are going to ------ about our plans for next year.",c:["discuss","tell","talk","say"],a:2,e:"Talk about (thảo luận/trao đổi)."},
+{n:148,q:"Please keep me -------- as to his whereabouts.",c:["interred","informed","deformed","reformed"],a:1,e:"Keep sb informed (giữ cho … được thông tin)."},
+{n:149,q:"I’m looking forward to ------- from you soon.",c:["hear","hearing","heard","have heard"],a:1,e:"Look forward to + V-ing."},
+{n:150,q:"Mother -------- me clean the floor with a mop.",c:["got","made","forced","told"],a:1,e:"Make + O + V (bare): made me clean …"},
 ];
 
-/* --- ĐỀ 5 --- */
 const DE5 = [
-{n:101,q:"The room was ------- noisy that no one was able to hear the announcement.",c:["so","such","as","very"],a:0,e:"**so + adj + that**: *so noisy that…*"},
-{n:102,q:"There is construction going on outside today, so please ------ the windows closed.",c:["stay","remain","let","keep"],a:3,e:"**keep + O + adj**: *keep the windows closed* (giữ cửa sổ đóng)."},
-{n:103,q:"One of the requirements of this position is that you show up every day ------- of the weather.",c:["despite","nonetheless","regardless","although"],a:2,e:"**regardless of** = bất kể."},
-{n:104,q:"The house Mr. Eno is thinking about buying is located ------- Heritage Street.",c:["to","on","from","of"],a:1,e:"Địa chỉ đường: **on + street**."},
-{n:105,q:"The manager hinted that Janet Tate -------- for a promotion.",c:["considers","has been considering","has considered","is being considered"],a:3,e:"Bị động hiện tiếp diễn: **is being considered** (đang được cân nhắc)."},
-{n:106,q:"If you do not find the accommodations here----------, be sure to let us know…",c:["satisfactory","satisfied","satisfaction","satisfactorily"],a:0,e:"**be + adj** → **satisfactory** (đạt yêu cầu)."},
-{n:107,q:"Please inform Ms. Anne Hedoni that we suggest she ------- her appointment …",c:["postpone","is postponing","postpones","will postpone"],a:0,e:"Thức giả định sau **suggest**: **(that) she postpone** (không chia -s)."},
-{n:108,q:"Trying to force one’s religious beliefs … for no one can -------- another person believe anything.",c:["let","impose","make","get"],a:2,e:"**make sb + V**: *make another person believe*."},
-{n:109,q:"… many people have stopped buying ------ razors.",c:["unusable","disposable","temporary","impermanent"],a:1,e:"Cụm: **disposable razors** (dao cạo dùng một lần)."},
-{n:110,q:"The suspect ------- the detective’s accusation that he was involved with organized crime.",c:["denied","declined","exclaimed","unclaimed"],a:0,e:"**deny** an accusation (phủ nhận)."},
-{n:111,q:"There is no need to bring anything to the exam; you will be provided ------ all required materials.",c:["to","with","for","about"],a:1,e:"**provide sb with sth**."},
-{n:112,q:"… her inability ------- discipline among her employees.",c:["maintaining","maintained","to maintain","being maintained"],a:2,e:"**inability to + V**."},
-{n:113,q:"---------- by the Union chief's argument … management refused to reconsider its decision.",c:["Moved","Moving","Unmoved","Unmoving"],a:2,e:"**unmoved** = không bị thuyết phục/lay chuyển."},
-{n:114,q:"… consider not only the professional qualifications … but also his or her ---------.",c:["character","characters","characteristic","caricatures"],a:0,e:"**character** = tính cách/phẩm chất."},
-{n:115,q:"The agreement was concluded --------- precisely 11:03 p.m. …",c:["near","on","at","to"],a:2,e:"**at + giờ**."},
-{n:116,q:"… the results of --------- he hopes to have published …",c:["whose","it","which","that"],a:2,e:"**the results of which** … (mệnh đề quan hệ trang trọng)."},
-{n:117,q:"Reverend Al Dulton may not be the most --------- speaker, …",c:["elemental","eloquent","eclectic","essential"],a:1,e:"**eloquent speaker** = hùng biện, thuyết phục."},
-{n:118,q:"Springfield has the ------- of being one of the nation’s safest places to live.",c:["reputes","reputed","reputing","reputation"],a:3,e:"**have the reputation of** …"},
-{n:119,q:"Everyone -------- Ms. St. John has submitted an application.",c:["to","but","from","for"],a:1,e:"**everyone but …** = trừ …"},
-{n:120,q:"Because he knew he was being observed, Curtis had trouble ------- on his work.",c:["concentrates","concentrating","concentrated","concentration"],a:1,e:"**have trouble + V-ing**."},
-{n:121,q:"The speech, ------ quite long, succeeded in holding the interest …",c:["though","needless","factually","however"],a:0,e:"Rút gọn mệnh đề nhượng bộ: **though + adj**."},
-{n:122,q:"They probably ------ dinner by the time we get there.",c:["had finished","have finished","will have finished","will have been finishing"],a:2,e:"**TLHT**: **will have finished** by + mốc tương lai."},
-{n:123,q:"… assigned to the night ----------.",c:["crew","clan","cast","call"],a:0,e:"**night crew** = kíp đêm."},
-{n:124,q:"It should be understood that the ------- of a solid customer base …",c:["creativity","creation","creature","creator"],a:1,e:"Danh từ quá trình: **creation**."},
-{n:125,q:"… but ------- the whole, the development of the automobile has been …",c:["at","in","to","on"],a:3,e:"Cụm cố định: **on the whole** = nhìn chung."},
-{n:126,q:"… inform employees … and ------ management of ways to ensure compliance …",c:["advice","advise","advisor","advisory"],a:1,e:"Động từ: **advise** (không phải **advice** – danh từ)."},
-{n:127,q:"For the most part, ------- in technology stocks …",c:["investing","investment","investors","investiture"],a:2,e:"Chủ thể là **những người đầu tư** → **investors**."},
-{n:128,q:"We regret -------- your office of the changes … earlier …",c:["to inform","not having informed","not to inform","the informing of"],a:1,e:"**regret + not having V3** = lấy làm tiếc vì **đã không** làm gì."},
-{n:129,q:"… suggestions as ------- how workplace safety might be improved.",c:["to","of","if","in"],a:0,e:"Cụm: **as to how** …"},
-{n:130,q:"Representatives of this firm must never ------- to high-pressure … tactics …",c:["succumb","resolve","submit","resort"],a:3,e:"Cụm: **resort to** (viện đến/đành dùng)."},
-{n:131,q:"Hardly -------- surveyed expressed interest …",c:["anyone","no one","those","of those"],a:0,e:"**hardly anyone** = hầu như không ai."},
-{n:132,q:"… value of pensions is not ------- by inflation.",c:["declassified","defended","decreased","deceived"],a:2,e:"**decrease** = giảm; bị động: **not decreased by** …"},
-{n:133,q:"In this economic climate, it is difficult to cover expenses, ------- achieve a profit.",c:["evermore","more or less","much less","as much as"],a:2,e:"**much less** = huống chi/chứ đừng nói đến."},
-{n:134,q:"… had a difficult time ------ with the sudden increase in incoming calls.",c:["holding down","putting through","keeping up","taking over"],a:2,e:"**keep up with** = bắt kịp, xử lý kịp."},
-{n:135,q:"News ------- of our financial difficulties has hurt our chances …",c:["uncovering","coverage","uncovers","covering"],a:1,e:"**news coverage** = việc đưa tin."},
-{n:136,q:"… injuries attributable to worker -------;",c:["diligence","fatigue","wages","Insurance"],a:1,e:"**fatigue** = mệt mỏi."},
-{n:137,q:"Attendance at the workshop is ----- for all faculty members …",c:["mandatory","laudatory","exemplary","disciplinary"],a:0,e:"**mandatory** = bắt buộc."},
-{n:138,q:"Declines in absenteeism and increased ------- led the company …",c:["productivity","produce","productions","producers"],a:0,e:"**increased productivity**."},
-{n:139,q:"… I overheard someone ------- that your application …",c:["say","said","to say","had said"],a:0,e:"**overhear sb say** (bare) …"},
-{n:140,q:"Ms. Oliver wishes to express her concern ------- the decision …",c:["regard","regarding","regards","regardless"],a:1,e:"**regarding** = về/ liên quan đến."},
-{n:141,q:"The files were ------- alphabetically.",c:["organization","organizer","organize","organized"],a:3,e:"Bị động QK đơn: **were organized**."},
-{n:142,q:"The business consultant suggested a ------- sales plan.",c:["modify","modifies","modified","modifying"],a:2,e:"**a modified plan** (tính từ quá khứ phân từ)."},
-{n:143,q:"------- there were so many customer complaints, we withdrew the item …",c:["Therefore","Because","Although","However"],a:1,e:"Nguyên nhân: **because**."},
-{n:144,q:"The ------- report will be published next Monday.",c:["selling","sales","sell","sells"],a:1,e:"**sales report** (báo cáo bán hàng)."},
-{n:145,q:"The architect must consider every detail of a floor -------.",c:["planning","plan","plans","planned"],a:1,e:"Danh từ: **a floor plan** (bản vẽ sơ đồ)."},
-{n:146,q:"Mr. Lafferty wants to meet ------- six o'clock sharp.",c:["on","upon","at","during"],a:2,e:"**at + giờ**."},
-{n:147,q:"The ------- of the office party must take responsibility for the cleanup.",c:["plans","planning","planned","planners"],a:3,e:"**the planners** = người lập kế hoạch/ban tổ chức."},
-{n:148,q:"------- the new product didn't sell well, it's still on the market.",c:["However","So that","Although","Nevertheless"],a:2,e:"Nhượng bộ ở đầu câu: **Although …, …**"},
-{n:149,q:"The crew worked ------- to avoid problems in the future.",c:["careful","carefully","care","more careful"],a:1,e:"Cần **trạng từ** bổ nghĩa cho động từ: **carefully**."},
-{n:150,q:"Demand for the new line of cars is up; -------, production will increase.",c:["however","despite","therefore","regardless"],a:2,e:"Kết quả/hệ quả → **therefore**."},
+{n:101,q:"The room was ------- noisy that no one was able to hear the announcement.",c:["so","such","as","very"],a:0,e:"So + adj + that … → so noisy that …"},
+{n:102,q:"There is construction going on outside today, so please ------ the windows closed.",c:["stay","remain","let","keep"],a:3,e:"Keep + O + adj: keep the windows closed."},
+{n:103,q:"One of the requirements of this position is that you show up every day ------- of the weather.",c:["despite","nonetheless","regardless","although"],a:2,e:"Regardless of (bất kể)."},
+{n:104,q:"The house Mr. Eno is thinking about buying is located ------- Heritage Street.",c:["to","on","from","of"],a:1,e:"On + tên đường."},
+{n:105,q:"The manager hinted that Janet Tate -------- for a promotion.",c:["considers","has been considering","has considered","is being considered"],a:3,e:"Bị động hiện tiếp diễn: is being considered (đang được xem xét)."},
+{n:106,q:"If you do not find the accommodations here----------, be sure to let us know …",c:["satisfactory","satisfied","satisfaction","satisfactorily"],a:0,e:"Be + adj: satisfactory (đạt yêu cầu)."},
+{n:107,q:"Please inform Ms. Anne Hedoni that we suggest she ------- her appointment for at least a week.",c:["postpone","is postponing","postpones","will postpone"],a:0,e:"Thức giả định sau suggest: (that) she postpone (V nguyên dạng)."},
+{n:108,q:"Trying to force one’s religious beliefs on someone else is futile, for no one can -------- another person believe anything.",c:["let","impose","make","get"],a:2,e:"Make sb + V = khiến ai làm gì."},
+{n:109,q:"… many people have stopped buying ------ razors.",c:["unusable","disposable","temporary","impermanent"],a:1,e:"Disposable razors = dao cạo dùng một lần."},
+{n:110,q:"The suspect ------- the detective’s accusation that he was involved with organized crime.",c:["denied","declined","exclaimed","unclaimed"],a:0,e:"Deny an accusation (phủ nhận cáo buộc)."},
+{n:111,q:"… you will be provided ------ all required materials.",c:["to","with","for","about"],a:1,e:"Provide sb with sth."},
+{n:112,q:"The restaurant manager was replaced because of her inability ------- discipline among her employees.",c:["maintaining","maintained","to maintain","being maintained"],a:2,e:"Inability to + V."},
+{n:113,q:"---------- by the Union chief's argument …, company management refused …",c:["Moved","Moving","Unmoved","Unmoving"],a:2,e:"Unmoved = không lay chuyển (không bị thuyết phục)."},
+{n:114,q:"… consider not only … qualifications …, but also his or her ---------.",c:["character","characters","characteristic","caricatures"],a:0,e:"Character = tính cách/phẩm chất."},
+{n:115,q:"The agreement was concluded --------- precisely 11:03 p.m. on November 27th.",c:["near","on","at","to"],a:2,e:"At + giờ."},
+{n:116,q:"Dr. Scobie is about to complete his research, the results of --------- he hopes to have published …",c:["whose","it","which","that"],a:2,e:"The results of which … (mệnh đề quan hệ giới từ hóa)."},
+{n:117,q:"Reverend Al Dulton may not be the most --------- speaker, but he always succeeds in getting his point across.",c:["elemental","eloquent","eclectic","essential"],a:1,e:"Eloquent = hùng biện."},
+{n:118,q:"Springfield has the ------- of being one of the nation’s safest places to live.",c:["reputes","reputed","reputing","reputation"],a:3,e:"Have the reputation of …"},
+{n:119,q:"Everyone -------- Ms. St. John has submitted an application.",c:["to","but","from","for"],a:1,e:"Everyone but … = ngoài …"},
+{n:120,q:"Because he knew he was being observed, Curtis had trouble ------- on his work.",c:["concentrates","concentrating","concentrated","concentration"],a:1,e:"Have trouble + V-ing."},
+{n:121,q:"The speech, ------ quite long, succeeded in holding the interest of the audience …",c:["though","needless","factually","however"],a:0,e:"Though + adj (rút gọn mệnh đề nhượng bộ)."},
+{n:122,q:"They probably ------ dinner by the time we get there.",c:["had finished","have finished","will have finished","will have been finishing"],a:2,e:"TLHT (future perfect): will have finished by …"},
+{n:123,q:"… assigned to the night ----------.",c:["crew","clan","cast","call"],a:0,e:"Night crew = kíp đêm."},
+{n:124,q:"It should be understood that the ------- of a solid customer base …",c:["creativity","creation","creature","creator"],a:1,e:"The creation of …"},
+{n:125,q:"… but ------- the whole, the development of the automobile …",c:["at","in","to","on"],a:3,e:"On the whole = nhìn chung."},
+{n:126,q:"… inform employees of new regulations and ------ management of ways to ensure compliance …",c:["advice","advise","advisor","advisory"],a:1,e:"Động từ: advise."},
+{n:127,q:"For the most part, ------- in technology stocks have seen the value of their shares increase …",c:["investing","investment","investors","investiture"],a:2,e:"Investors (nhà đầu tư)."},
+{n:128,q:"We regret -------- your office of the changes to the program earlier …",c:["to inform","not having informed","not to inform","the informing of"],a:1,e:"Regret not having V3 … (hối tiếc vì đã không …)."},
+{n:129,q:"Employees … are strongly encouraged to make suggestions as ------- how workplace safety might be improved.",c:["to","of","if","in"],a:0,e:"As to how … (về việc làm thế nào …)."},
+{n:130,q:"Representatives of this firm must never ------- to high-pressure or deceitful sales tactics …",c:["succumb","resolve","submit","resort"],a:3,e:"Resort to = dùng đến/nhờ đến."},
+{n:131,q:"Hardly -------- surveyed expressed interest in either of the product offerings …",c:["anyone","no one","those","of those"],a:0,e:"Hardly anyone … (hầu như không ai)."},
+{n:132,q:"COLAs … exist to ensure that the value of pensions is not ------- by inflation.",c:["declassified","defended","decreased","deceived"],a:2,e:"Not decreased by …"},
+{n:133,q:"In this economic climate, it is difficult to cover expenses, ------- achieve a profit.",c:["evermore","more or less","much less","as much as"],a:2,e:"Much less = huống chi/chứ đừng nói …"},
+{n:134,q:"The television advertisement was so effective that customer service representatives had a difficult time ------ with the sudden increase in incoming calls.",c:["holding down","putting through","keeping up","taking over"],a:2,e:"Keep up with = bắt kịp/đáp ứng."},
+{n:135,q:"News ------- of our financial difficulties has hurt our chances of completing the merger.",c:["uncovering","coverage","uncovers","covering"],a:1,e:"News coverage (sự đưa tin)."},
+{n:136,q:"There have been several production line injuries attributable to worker -------;",c:["diligence","fatigue","wages","Insurance"],a:1,e:"Fatigue = mệt mỏi, kiệt sức."},
+{n:137,q:"Attendance at the workshop is ----- for all faculty members …",c:["mandatory","laudatory","exemplary","disciplinary"],a:0,e:"Mandatory = bắt buộc."},
+{n:138,q:"Declines in absenteeism and increased ------- led the company to … pay raises.",c:["productivity","produce","productions","producers"],a:0,e:"Increased productivity."},
+{n:139,q:"… I overheard someone ------- that your application for transfer had been rejected …",c:["say","said","to say","had said"],a:0,e:"Overhear sb say …"},
+{n:140,q:"Ms. Oliver wishes to express her concern ------- the decision not to review the safety procedures.",c:["regard","regarding","regards","regardless"],a:1,e:"Regarding = về/đối với."},
+{n:141,q:"The files were ------- alphabetically.",c:["organization","organizer","organize","organized"],a:3,e:"Bị động QKĐ: were organized …"},
+{n:142,q:"The business consultant suggested a ------- sales plan.",c:["modify","modifies","modified","modifying"],a:2,e:"A modified plan (tính từ V3 bổ nghĩa danh từ)."},
+{n:143,q:"------- there were so many customer complaints, we withdrew the item from the market.",c:["Therefore","Because","Although","However"],a:1,e:"Because + mệnh đề nguyên nhân."},
+{n:144,q:"The ------- report will be published next Monday.",c:["selling","sales","sell","sells"],a:1,e:"Sales report (báo cáo bán hàng)."},
+{n:145,q:"The architect must consider every detail of a floor -------.",c:["planning","plan","plans","planned"],a:1,e:"A floor plan (bản vẽ mặt bằng)."},
+{n:146,q:"Mr. Lafferty wants to meet ------- six o'clock sharp.",c:["on","upon","at","during"],a:2,e:"At + giờ."},
+{n:147,q:"The ------- of the office party must take responsibility for the cleanup.",c:["plans","planning","planned","planners"],a:3,e:"The planners (những người tổ chức)."},
+{n:148,q:"------- the new product didn't sell well, it's still on the market.",c:["However","So that","Although","Nevertheless"],a:2,e:"Although …, …"},
+{n:149,q:"The crew worked ------- to avoid problems in the future.",c:["careful","carefully","care","more careful"],a:1,e:"Trạng từ: carefully."},
+{n:150,q:"Demand for the new line of cars is up; -------, production will increase.",c:["however","despite","therefore","regardless"],a:2,e:"Therefore = vì thế/do đó."},
 ];
 
-/* ============ TIỆN ÍCH ============ */
-function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr;}
-function escapeHTML(s){return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');}
+/* =================== TIỆN ÍCH =================== */
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
+}
+function escapeHTML(s){
+  return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+}
 
-/* ============ GHÉP DỮ LIỆU & CHẾ ĐỘ ============ */
+/* =================== GHÉP NGUỒN & DOM =================== */
 const BANK = {de1:DE1,de2:DE2,de3:DE3,de4:DE4,de5:DE5};
 
 const MODE_SELECT = document.getElementById('modeSelect');
@@ -436,7 +440,7 @@ const INPUT_SEARCH = document.getElementById('search');
 let workingSet = [];
 let score = 0;
 
-/* ====== Xây card câu hỏi (chọn sai → hiện đáp án đúng + giải thích; chọn đúng → khóa & cộng điểm) ====== */
+/* ========== TẠO THẺ CÂU HỎI (ĐÃ FIX ĐÁP ÁN ĐÚNG SAU KHI XÁO) ========== */
 function buildQuestionCard(q){
   const card = document.createElement('div');
   card.className='card';
@@ -453,14 +457,16 @@ function buildQuestionCard(q){
   const optsWrap = document.createElement('div');
   optsWrap.className='opts';
 
-  // Xáo vị trí đáp án mỗi lần render
+  // Tạo mảng đáp án và XÁO TRỘN vị trí
   const choiceObjs = q.c.map((t,i)=>({t,idx:i,correct:i===q.a}));
   shuffle(choiceObjs);
 
-  // Lấy đáp án đúng (theo dữ liệu gốc) để in rõ chữ cái + nội dung
-  const correctLetter = "ABCD"[q.a];
-  const correctText = q.c[q.a];
+  // Lấy vị trí đáp án đúng SAU KHI XÁO để hiển thị chữ cái chính xác
+  const correctShuffledIndex = choiceObjs.findIndex(co => co.correct);
+  const correctLetter = "ABCD"[correctShuffledIndex];
+  const correctText   = choiceObjs[correctShuffledIndex].t;
 
+  // Render lựa chọn
   choiceObjs.forEach((co, i)=>{
     const opt = document.createElement('button');
     opt.type='button';
@@ -470,10 +476,11 @@ function buildQuestionCard(q){
 
     opt.addEventListener('click', ()=>{
       if(card.dataset.locked==='1') return;
+
       const exp = card.querySelector('.explain');
 
       if(opt.dataset.correct==='1'){
-        // ĐÚNG
+        // Chọn ĐÚNG
         opt.classList.add('correct');
         card.dataset.locked='1';
         card.querySelectorAll('.opt').forEach(o=>o.classList.add('locked'));
@@ -483,7 +490,7 @@ function buildQuestionCard(q){
           SCORE.textContent = score;
         }
       }else{
-        // SAI → tô đỏ lựa chọn sai + TÔ XANH đáp án đúng + khóa + hiện giải thích
+        // Chọn SAI → đánh dấu sai + tô xanh đáp án đúng + khóa + hiện giải thích
         opt.classList.add('wrong');
         const right = Array.from(card.querySelectorAll('.opt')).find(o=>o.dataset.correct==='1');
         if(right){ right.classList.add('correct'); }
@@ -496,6 +503,7 @@ function buildQuestionCard(q){
     optsWrap.appendChild(opt);
   });
 
+  // Khung giải thích: ghi rõ chữ cái & nội dung đáp án đúng sau khi xáo
   const exp = document.createElement('div');
   exp.className='explain';
   exp.innerHTML = `
@@ -508,14 +516,16 @@ function buildQuestionCard(q){
   return card;
 }
 
-/* ====== Render ====== */
+/* =================== RENDER =================== */
 function render(list){
   QUIZ.innerHTML='';
   list.forEach(q=>QUIZ.appendChild(buildQuestionCard(q)));
-  score=0; SCORE.textContent=score; TOTAL.textContent=list.length;
+  score=0;
+  SCORE.textContent=score;
+  TOTAL.textContent=list.length;
 }
 
-/* ====== Lấy bộ câu theo chế độ ====== */
+/* =================== LẤY BỘ CÂU THEO CHẾ ĐỘ =================== */
 function getModeSet(){
   const mode = MODE_SELECT.value;
   if (mode === 'mix45') {
@@ -523,16 +533,16 @@ function getModeSet(){
     shuffle(all);
     return all.slice(0,45);
   } else {
-    // Luyện theo đề: giữ nguyên thứ tự 101→150
+    // Luyện theo đề: GIỮ THỨ TỰ 101→150
     return [...BANK[mode]];
   }
 }
 
-/* ====== Điều khiển ====== */
+/* =================== ĐIỀU KHIỂN =================== */
 function start(){
   const mode = MODE_SELECT.value;
   workingSet = getModeSet();
-  if (mode === 'mix45') shuffle(workingSet); // chỉ trộn thứ tự câu khi mix45
+  if (mode === 'mix45') shuffle(workingSet); // chỉ xáo thứ tự câu ở chế độ trộn 45
   render(workingSet);
 
   BTN_SHUF.disabled = (mode !== 'mix45');
@@ -542,19 +552,20 @@ function start(){
 }
 
 function shuffleAgain(){
-  const mode = MODE_SELECT.value;
-  if (mode !== 'mix45') return;
+  if (MODE_SELECT.value !== 'mix45') return;
   shuffle(workingSet);
   render(workingSet);
 }
 
 function showAll(){
-  // Hiện giải thích + đánh dấu đáp án đúng cho tất cả
+  // Mở toàn bộ giải thích + đánh dấu xanh đáp án đúng
   document.querySelectorAll('.card').forEach(card=>{
     const exp = card.querySelector('.explain');
     if(exp) exp.classList.add('show');
     const right = card.querySelector('.opt[data-correct="1"]');
     if(right){ right.classList.add('correct'); }
+    card.querySelectorAll('.opt').forEach(o=>o.classList.add('locked'));
+    card.dataset.locked='1';
   });
 }
 
@@ -573,15 +584,16 @@ function filterByKeyword(){
   render(filtered);
 }
 
-/* ====== Gắn sự kiện ====== */
+/* =================== GẮN SỰ KIỆN =================== */
 BTN_START.addEventListener('click', start);
 BTN_SHUF.addEventListener('click', shuffleAgain);
 BTN_SHOW.addEventListener('click', showAll);
 BTN_RESET.addEventListener('click', resetAll);
 INPUT_SEARCH.addEventListener('input', filterByKeyword);
 
-// Tự khởi tạo mặc định: trộn 45 câu
+// Khởi tạo mặc định: Trộn 45 câu
 start();
 </script>
+
 </body>
 </html>

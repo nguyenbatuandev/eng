@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Luyện trắc nghiệm 5 đề – Đúng/Sai + giải thích (chọn đề / trộn 45 câu)</title>
+<title>Luyện trắc nghiệm 5 đề – Đúng/Sai + giải thích (chọn đề / trộn 50 câu)</title>
 <style>
   :root{
     --ok:#16a34a;      /* xanh lá */
@@ -101,7 +101,7 @@
 <body>
 <div class="wrap">
   <div class="title">
-    <h1>Trắc nghiệm 5 đề • Chọn đề / Trộn 45 câu • Bấm để hiện Đúng/Sai + Giải thích</h1>
+    <h1>Trắc nghiệm 5 đề • Chọn đề / Trộn 50 câu • Bấm để hiện Đúng/Sai + Giải thích</h1>
     <div class="row">
       <div class="score">Điểm: <span id="score">0</span>/<span id="total">0</span></div>
     </div>
@@ -110,7 +110,7 @@
   <div class="toolbar">
     <label class="pill">
       <select id="modeSelect" aria-label="Chọn chế độ làm bài">
-        <option value="mix45">Trộn 5 đề (45 câu ngẫu nhiên)</option>
+        <option value="mix50">Trộn 5 đề (50 câu ngẫu nhiên)</option>
         <option value="de1">Luyện theo Đề 1 (50 câu)</option>
         <option value="de2">Luyện theo Đề 2 (50 câu)</option>
         <option value="de3">Luyện theo Đề 3 (50 câu)</option>
@@ -528,10 +528,10 @@ function render(list){
 /* =================== LẤY BỘ CÂU THEO CHẾ ĐỘ =================== */
 function getModeSet(){
   const mode = MODE_SELECT.value;
-  if (mode === 'mix45') {
+  if (mode === 'mix50') {
     const all = [...DE1, ...DE2, ...DE3, ...DE4, ...DE5];
     shuffle(all);
-    return all.slice(0,45);
+    return all.slice(0,50);
   } else {
     // Luyện theo đề: GIỮ THỨ TỰ 101→150
     return [...BANK[mode]];
@@ -542,17 +542,17 @@ function getModeSet(){
 function start(){
   const mode = MODE_SELECT.value;
   workingSet = getModeSet();
-  if (mode === 'mix45') shuffle(workingSet); // chỉ xáo thứ tự câu ở chế độ trộn 45
+  if (mode === 'mix50') shuffle(workingSet); // chỉ xáo thứ tự câu ở chế độ trộn 50
   render(workingSet);
 
-  BTN_SHUF.disabled = (mode !== 'mix45');
-  BTN_SHUF.title = (mode === 'mix45')
-    ? "Xáo trộn lại thứ tự 45 câu hiện tại"
+  BTN_SHUF.disabled = (mode !== 'mix50');
+  BTN_SHUF.title = (mode === 'mix50')
+    ? "Xáo trộn lại thứ tự 50 câu hiện tại"
     : "Chỉ trộn ở chế độ Trộn 5 đề (đề luyện tập giữ thứ tự 101→150)";
 }
 
 function shuffleAgain(){
-  if (MODE_SELECT.value !== 'mix45') return;
+  if (MODE_SELECT.value !== 'mix50') return;
   shuffle(workingSet);
   render(workingSet);
 }
@@ -591,7 +591,7 @@ BTN_SHOW.addEventListener('click', showAll);
 BTN_RESET.addEventListener('click', resetAll);
 INPUT_SEARCH.addEventListener('input', filterByKeyword);
 
-// Khởi tạo mặc định: Trộn 45 câu
+// Khởi tạo mặc định: Trộn 50 câu
 start();
 </script>
 
